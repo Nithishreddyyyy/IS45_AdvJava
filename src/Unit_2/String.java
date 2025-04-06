@@ -15,6 +15,7 @@ class Test {
         }else{
             System.out.println("Not equal");
         }
+        Boolean B = Boolean.TRUE;
 
         //Substring
         System.out.println(name1.substring(2));
