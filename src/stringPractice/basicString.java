@@ -1,6 +1,6 @@
 package stringPractice;
 
-public class _1 {
+class _1 {
     public static void main(String[] args) {
         char [] b = {'w','e','l'};
         String s = new String(b);
