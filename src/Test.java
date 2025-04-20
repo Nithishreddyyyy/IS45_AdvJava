@@ -1,16 +1,25 @@
-class Animal {
-    void sound() { System.out.println("Animal sound"); }
+abstract class Shape {
+    abstract void draw();
+    void  area() { System.out.println("Calculating area..."); }
+    abstract void haha();
+    String name="Dog";
+    public void printName(){
+        System.out.println("My name is "+ name);
+    }
 }
-class Dog extends Animal {
+class Circle extends Shape {
+    void draw() { System.out.println("Drawing Circle"); }
     @Override
-    void sound() { System.out.println("Bark"); }
+    void haha(){
+        System.out.println("Meow...");
+    }
 }
 class as{
     public static void main(String[] args) {
-        Dog obj1 = new Dog();
-        Animal obj2 = new Animal();
-        obj1.sound();
-        obj2.sound();
-
+        Circle obj = new Circle();
+        obj.area();
+        obj.draw();
+        obj.haha();
+        obj.printName();
     }
 }
