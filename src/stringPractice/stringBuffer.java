@@ -1,5 +1,5 @@
 package stringPractice;
-
+import java.util.*;
 class nn{
     public static void main(String[] args) {
         StringBuffer sb = new StringBuffer("Nith");
@@ -26,11 +26,16 @@ class nn{
 
         int num = 7;
         Integer obj = num;     // autoBoxing
-
+        System.out.println("Unboxing:"+obj.intValue());
 
         String str2 = "11";
         int num3 = Integer.parseInt(str2);
         System.out.println(num3+5);
+
+        Scanner S = new Scanner(System.in);
+        String name= S.next();
+        System.out.println(str);
+
 
     }
 }
