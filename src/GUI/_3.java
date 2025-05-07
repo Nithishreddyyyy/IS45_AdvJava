@@ -1,4 +1,4 @@
-package Test;
+package GUI;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -14,7 +14,7 @@ class GFG {
         frame.add(textField);
 
         // JButton
-        JButton button = new JButton("Don't worry");
+        JButton button = new JButton("Cat");
         button.setBounds(150, 100, 220, 40);
         frame.add(button);
 
@@ -23,10 +23,10 @@ class GFG {
         label.setBounds(150, 150, 220, 30);
         frame.add(label);
 
-        // Show message on button click
+        // A demonstration of Action Listener : This is an Interface
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                label.setText("GFG WEB Site Click");
+                label.setText("Button Was clicked");
             }
         });
 
