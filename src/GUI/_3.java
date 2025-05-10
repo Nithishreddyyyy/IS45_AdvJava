@@ -1,51 +1,31 @@
 package GUI;
-
 import javax.swing.*;
 import java.awt.event.*;
 
-class GFG {
+public class _3 {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("GFG Example");
+        JFrame frame = new JFrame();
         frame.setLayout(null);
 
-        // JTextField
-        JTextField textField = new JTextField();
-        textField.setBounds(150, 50, 220, 30);
-        frame.add(textField);
+        JTextField tf = new JTextField();
+        tf.setBounds(10, 10, 100, 30);
+        frame.add(tf);
 
-        // JButton
-        JButton button = new JButton("Cat");
-        button.setBounds(150, 100, 220, 40);
-        frame.add(button);
+        // Use JToggleButton instead of JButton
+        JToggleButton toggleBtn = new JToggleButton("Toggle");
+        toggleBtn.setBounds(10, 50, 100, 30);
+        frame.add(toggleBtn);
 
-        // JLabel for message
-        JLabel label = new JLabel("");
-        label.setBounds(150, 150, 220, 30);
-        frame.add(label);
-
-        // A demonstration of Action Listener : This is an Interface
-        button.addActionListener(new ActionListener() {
+        // Add ActionListener to JToggleButton
+        toggleBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                label.setText("Button Was clicked");
+                if (toggleBtn.isSelected()) {
+                    tf.setText("On");
+                } else {
+                    tf.setText("Off");
+                }
             }
         });
-
-        // JRadioButton
-        JRadioButton radioButton = new JRadioButton("A");
-        radioButton.setBounds(150, 200, 220, 30);
-        frame.add(radioButton);
-
-        // JComboBox
-        String[] items = { "Option 1", "Option 2", "Option 3" };
-        JComboBox<String> comboBox = new JComboBox<>(items);
-        comboBox.setBounds(150, 250, 220, 30);
-        frame.add(comboBox);
-
-        // JTextArea in JScrollPane
-        JTextArea textArea = new JTextArea();
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setBounds(150, 300, 220, 100);
-        frame.add(scrollPane);
 
         // Frame settings
         frame.setSize(600, 500);
