@@ -31,7 +31,7 @@ public class PassSecurity {
         System.out.println("password contains special characters: "+spect_char);
 
 
-        if(password.length() <-2){
+        if(password.length() <= 2){
             masked_password = password;
             System.out.println("masked passowrd is : "+masked_password);
         }
