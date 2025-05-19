@@ -88,8 +88,9 @@ public class Shop implements ActionListener
 	String t=String.valueOf(total);
 	JOptionPane.showMessageDialog(null,"Total for "+itna+" is"+t);
 	}
-	 public static void main(String [] args) {
- 	it.add(new Item("Bat","1",5000));
+	 public static void main(String args[]) {
+	users.put((long) 1234567890,1);
+	it.add(new Item("Bat","1",5000));
 	it.add(new Item("Gloves","2",2000));
 	it.add(new Item("Ball","3",600));
 	Shop obj=new Shop();
