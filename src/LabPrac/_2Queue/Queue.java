@@ -2,7 +2,7 @@ package LabPrac._2Queue;
 
 public class Queue {
     int [] queue;
-    int cap,front,rear,size;
+    int cap,front,rear;
 
     public Queue(int cap){
         if(cap <= 0){
@@ -12,7 +12,6 @@ public class Queue {
         this.queue = new int[cap];
         this.front = 0;
         this.rear = -1;
-        this.size = 0;
     }
 
     public void Enqueue(int item){
@@ -20,16 +19,14 @@ public class Queue {
             throw new QueueOverFlowException("Queue is full");
         }
         queue[++rear] = item;
-        size++;
         System.out.println("enqueued" + item);
     }
 
     public void Dequeue(){
         if(isEmpty()){
-            throw new QueueUnderFlowException("Queue is full");
+            throw new QueueUnderFlowException("Queue is Empty");
         }
-        int item = queue[front--];
-        size--;
+        int item = queue[front++];
         System.out.println("dequeued" + item);
     }
 
@@ -38,17 +35,17 @@ public class Queue {
             throw new QueueUnderFlowException("Queue is empty");
         }
         System.out.println("Queue elements are:");
-        for(int i = 0 ; i <= rear ; i++){
+        for(int i = front ; i <= rear ; i++){
             System.out.println(queue[i]+"\t");
         }
         System.out.println("end of queue");
     }
 
     public boolean isEmpty(){
-        return size == 0;
+        return front > rear;
     }
     public boolean isFull(){
-        return size == cap;
+        return rear == cap - 1;
     }
 
     public static void main(String[] args) {
