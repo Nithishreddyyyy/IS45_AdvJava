@@ -57,5 +57,22 @@ class Demo{
         integerStack.clear();
         System.out.println("After clearing empty stack: ");
         integerStack.display();
+
+
+        Stack<String> stringStack = new Stack<>();
+        stringStack.push("Hello");
+        stringStack.push("World");
+        stringStack.push("Java");
+        stringStack.push("Python");
+        stringStack.display();
+        System.out.println("Popping");
+        stringStack.pop();
+        stringStack.pop();
+        stringStack.display();
+        System.out.println("After clearing stack: ");
+        stringStack.clear();
+        stringStack.display();
+        System.out.println("----End of program----");
+
     }
 }
