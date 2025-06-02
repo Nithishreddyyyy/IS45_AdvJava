@@ -5,6 +5,9 @@ interface Aa{
 }
 
 public class FuncInterface {
+    void Aa(int a){
+        System.out.println(a*a);
+    }
     public static void main(String[] args) {
 //        Aa obj = () ->{
 //            System.out.println("in Show");

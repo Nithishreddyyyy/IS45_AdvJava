@@ -2,17 +2,6 @@ package LabPrac._4Palindrome;
 
 import java.util.Scanner;
 
-class InvalidInputException extends Exception{
-    public InvalidInputException(String message){
-        super(message);
-    }
-}
-class ShortStringException extends Exception{
-    public ShortStringException(String message){
-        super(message);
-    }
-
-}
 public class palindromeChecker {
     public  boolean isPalindrome(String str){
         String lowerInput = str.toLowerCase();

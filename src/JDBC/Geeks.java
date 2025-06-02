@@ -18,13 +18,13 @@ import java.sql.*;
 
 public class Geeks {
     public static void main(String[] args) throws Exception {
-        String url = "jdbc:mysql://localhost:3306/temp"; // Database details
+        String url = "jdbc:mysql://localhost:3306/iseTestDB"; // Database details
         String username = "root"; // MySQL credentials
         String password = "test1234";
-        String query = "select * from Student"; // Query to be run
+        String query = "select * from Faculty"; // Query to be run
 
         // Load and register the driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        //Class.forName("com.mysql.cj.jdbc.Driver");
 
         // Establish connection
         Connection con = DriverManager.getConnection(url, username, password);
@@ -38,7 +38,7 @@ public class Geeks {
 
         // Process the results
         while (rs.next()) {
-            String name = rs.getString("Name"); // Retrieve name from db
+            String name = rs.getString("FirstName"); // Retrieve name from db
             System.out.println(name); // Print result on console
         }
 
