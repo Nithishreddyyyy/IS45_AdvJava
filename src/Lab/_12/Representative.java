@@ -51,8 +51,49 @@ public class Representative extends JFrame implements ActionListener {
         add(disp);
         submit.addActionListener(this);
         disp.addActionListener(this);
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "test1234");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     public void actionPerformed(ActionEvent ae){
+        if(ae.getSource() == submit){
+            int repn = Integer.parseInt(repno.getText());
+            String repna = repname.getText();
+            String sta = state.getText();
+            String com = comm.getText();
+            String rat = rate.getText();
+            int custn = Integer.parseInt(cust_no.getText());
+            String custna = cust_name.getText();
+            String cre = cred.getText();
+            String query= "insert into Rep values(?,?,?,?,?)";
+            try{
+                ps = con.prepareStatement(query);
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+            try{
+                ps.setInt(1,repn);
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            try{
+                ps.setString(2,repna);
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            try{
+                ps.setString(3,sta);
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            try{
+                ps.setString(4,com);
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
 
+        }
     }
 }
