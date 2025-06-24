@@ -6,9 +6,6 @@ import java.util.HashMap;
 import java.util.*;
 public class Shop implements ActionListener 
 {
-//Once validated, allow the user to enter the customer id, if the person is a new 
-//	customer, else check whether the customer exists in a collection and obtain the 46
-//	customer id.
 	String user="Amy";String pass="1234";
 	String un="";String pw;int id;
 	JTextField userid,phno,Itemid,quan,name;
@@ -32,8 +29,7 @@ public class Shop implements ActionListener
 	 }
 	}
 	}
-	 }//The customer id can be obtained given a mobile number. 
-
+	 }
 	long ph=Long.parseLong(JOptionPane.showInputDialog(null,"Enter 	phno"));
 	if(users.containsKey(ph)) {
 	id=users.get(ph);
@@ -60,7 +56,6 @@ public class Shop implements ActionListener
 	userid.setEditable(false);
 	frm.add(ph1);frm.add(phno);
 	phno.setText(String.valueOf(ph));
-	//Allow the user to enter the item purchased by giving the item id and quantity purchased.
 	frm.add(id1);frm.add(Itemid);
 	frm.add(q1);frm.add(quan);
 	frm.add(n1);frm.add(name);
@@ -69,9 +64,7 @@ public class Shop implements ActionListener
 	frm.setSize(300,300);
 	frm.setVisible(true);
 	frm.setLayout(new GridLayout(6,2));
-	}//The customer id can be obtained given a mobile number. Allow the user to enter the 
-	//item purchased by giving the item id and quantity purchased.
-
+	}
 	public void actionPerformed(ActionEvent evt) {
 	String itid=Itemid.getText();
 	int itq=Integer.parseInt(quan.getText());
@@ -82,8 +75,7 @@ public class Shop implements ActionListener
 	if(ii.id.equals(itid)) {
 	total=itq*ii.price;
 	}
-	}//Using option dialog box, indicate the types of discount available for the customer. 
-	//On clicking on the print button, print the details in information dialog box
+	}
 	total=total-(total*0.01*Integer.parseInt(discounts[r]));
 	String t=String.valueOf(total);
 	JOptionPane.showMessageDialog(null,"Total for "+itna+" is"+t);
@@ -95,5 +87,4 @@ public class Shop implements ActionListener
 	it.add(new Item("Ball","3",600));
 	Shop obj=new Shop();
 	}
-
 }
