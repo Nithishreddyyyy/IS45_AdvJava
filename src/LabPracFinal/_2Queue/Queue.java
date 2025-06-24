@@ -1,64 +1,65 @@
 package LabPracFinal._2Queue;
-public class Queue {
+
+import LabPrac._2Queue.QueueUnderFlowException;
+
+public class Queue{
     int [] queue;
-    int cap,front,rear;
+    int cap , front , rear;
 
     public Queue(int cap){
-        if(cap <= 0){
-            throw new IllegalArgumentException("Queue capacity must be greater than 0");
+        if (cap <= 0){
+            System.err.println("cap can't be less than 0");
         }
         this.cap = cap;
-        this.queue = new int[cap];
         this.front = 0;
-        this.rear = -1;
+        this.rear = 0;
+        this.queue = new int[cap];
     }
 
     public void Enqueue(int item){
         if(isFull()){
-            throw new QueueOverFlowException("Queue is full");
+            throw new QueueUnderFlowException("Queue is full");
         }
         queue[++rear] = item;
-        System.out.println("enqueued" + item);
+        System.out.println("Enqueue " + item);
     }
 
     public void Dequeue(){
         if(isEmpty()){
-            throw new LabPrac._2Queue.QueueUnderFlowException("Queue is Empty");
-        }
-        int item = queue[front++];
-        System.out.println("dequeued" + item);
-    }
-
-    public void display(){
-        if(isEmpty()){
             throw new QueueUnderFlowException("Queue is empty");
         }
-        System.out.println("Queue elements are:");
-        for(int i = front ; i <= rear ; i++){
-            System.out.println(queue[i]+"\t");
-        }
-        System.out.println("end of queue");
+        int item = queue[front++];
+        System.out.println("Dequeue " + item);
     }
 
     public boolean isEmpty(){
         return front > rear;
     }
     public boolean isFull(){
-        return rear == cap - 1;
+        return rear == cap - 1 ;
     }
 
-    public static void main(String[] args) {
-        System.out.println("--- Queue operations ---");
-        LabPrac._2Queue.Queue Q = new LabPrac._2Queue.Queue(5);
-
-        try{
-            Q.Enqueue(1);
-            Q.Enqueue(2);
-            Q.display();
-            Q.Dequeue();
-            Q.display();
-        }catch(Exception e){
-            System.err.println("Error: " + e);
+    public void disp(){
+        if(isEmpty()){
+            throw new QueueUnderFlowException("Queue is empty");
         }
+        System.out.println("Queue elements are:");
+        for (int i = front ; i <= rear ; i++){
+            System.out.println(queue[i]);
+        }
+        System.out.println("---End of Queue---");
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("###Queue Operations###");
+        Queue Q = new Queue(5);
+        Q.Enqueue(1);
+        Q.Enqueue(2);
+        Q.Enqueue(3);
+        Q.Enqueue(4);
+        Q.disp();
+        Q.Dequeue();
+        Q.disp();
     }
 }
