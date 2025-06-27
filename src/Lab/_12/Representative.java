@@ -206,7 +206,7 @@ public class Representative extends JFrame implements ActionListener{
             }
         }
     }
-    public static void main(String args[]){
+    public static void main(String [] args){
         Representative obj=new Representative();
         obj.setVisible(true);
         obj.setSize(300,300);
