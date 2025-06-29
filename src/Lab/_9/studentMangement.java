@@ -10,7 +10,8 @@ public class studentMangement implements ActionListener {
     static JFrame frm;
     static JFrame frm1;
     JLabel name1, age1, addr1, usn1, category1;
-    JTextField name, usn, address, age, category;
+    JTextField name, usn, address, age;
+    JComboBox<String> category; // Changed from JTextField to JComboBox
     JButton compute, done, complete;
     JTextArea jt;
     float[] sgpas = new float[4];
@@ -29,7 +30,7 @@ public class studentMangement implements ActionListener {
         age = new JTextField(20);
         address = new JTextField(20);
         usn = new JTextField(20);
-        category = new JTextField(20);
+        category = new JComboBox<>(new String[]{"GM", "SC", "ST", "OBC"}); // ComboBox values
 
         compute = new JButton("Compute CGPA");
         done = new JButton("Done");
@@ -46,7 +47,7 @@ public class studentMangement implements ActionListener {
         frm.add(age1); frm.add(age);
         frm.add(addr1); frm.add(address);
         frm.add(usn1); frm.add(usn);
-        frm.add(category1); frm.add(category);
+        frm.add(category1); frm.add(category); // Replaced field here
         frm.add(compute); frm.add(done);
         frm.add(new JLabel()); frm.add(complete);
 
@@ -63,22 +64,19 @@ public class studentMangement implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == compute) {
-            // Validate all input fields
             if (name.getText().trim().isEmpty() || age.getText().trim().isEmpty() ||
-                    address.getText().trim().isEmpty() || usn.getText().trim().isEmpty() ||
-                    category.getText().trim().isEmpty()) {
+                    address.getText().trim().isEmpty() || usn.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(frm, "Please fill all fields!", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             try {
-                Integer.parseInt(age.getText().trim()); // Age check
+                Integer.parseInt(age.getText().trim());
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(frm, "Age must be a number!", "Input Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            // Ask SGPA inputs via input dialogs
             try {
                 for (int i = 0; i < 4; i++) {
                     String s = JOptionPane.showInputDialog(frm, "Enter SGPA for Semester " + (i + 1));
@@ -100,15 +98,15 @@ public class studentMangement implements ActionListener {
             String nm = name.getText().trim();
             String usnText = usn.getText().trim();
             String addr = address.getText().trim();
-            String cat = category.getText().trim();
+            String cat = (String) category.getSelectedItem(); // Get selected item
             int ageVal = Integer.parseInt(age.getText().trim());
 
             student s = new student(nm, usnText, addr, cat, ageVal, sgpas[0], sgpas[1], sgpas[2], sgpas[3]);
             arr.add(s);
             JOptionPane.showMessageDialog(frm, "Student record added!");
 
-            // Reset form and buttons
-            name.setText(""); age.setText(""); address.setText(""); usn.setText(""); category.setText("");
+            name.setText(""); age.setText(""); address.setText(""); usn.setText("");
+            category.setSelectedIndex(0); // Reset combo box
             compute.setEnabled(true);
             done.setEnabled(false);
         }
