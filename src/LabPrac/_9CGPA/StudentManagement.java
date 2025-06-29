@@ -8,7 +8,8 @@ public class StudentManagement implements ActionListener {
     ArrayList<Student> arr = new ArrayList<>();
     static JFrame frm, frm1;
     JLabel name1, age1, addr1, cat1Label, usn1, details, sgp1, sgp2, sgp3, sgp4, cgp;
-    JTextField name, usn, addr, age, sgpa1, sgpa2, sgpa3, sgpa4, cgpa, cat1;
+    JTextField name, usn, addr, age, sgpa1, sgpa2, sgpa3, sgpa4, cgpa;
+    JComboBox<String> cat1;
     JButton compute, done, complete;
     JTextArea jt;
     float CGPA;
@@ -37,9 +38,11 @@ public class StudentManagement implements ActionListener {
         sgpa2 = new JTextField(10);
         sgpa3 = new JTextField(10);
         sgpa4 = new JTextField(10);
-        cat1 = new JTextField(10);
         cgpa = new JTextField(10);
         cgpa.setEditable(false);
+
+        // Changed to JComboBox with example categories
+        cat1 = new JComboBox<>(new String[]{"General", "OBC", "SC", "ST"});
 
         compute = new JButton("Compute");
         done = new JButton("Done");
@@ -102,7 +105,7 @@ public class StudentManagement implements ActionListener {
                 String n = name.getText();
                 String u = usn.getText();
                 String a = addr.getText();
-                String c = cat1.getText();
+                String c = (String) cat1.getSelectedItem(); // Updated here
                 int x = Integer.parseInt(age.getText());
 
                 float t1 = Float.parseFloat(sgpa1.getText());
