@@ -2,16 +2,12 @@ package FinalPractice;
 
 public class _4 {
     private int test = 10;
-}
-class aA{
-    aA(){
-        super();
-        System.out.println();
+    try{
+        int b = 100/0;
+        System.out.println("b: "+b);
+    }catch(ArithmeticException E){
+        System.err.println(E.getMessage());
     }
 
-    public static void main(String[] args) {
-        aA obj = new aA();
-        System.out.println(obj.res());
-    }
 }
 
