@@ -9,6 +9,10 @@ public class _6 {
         str = "Hello World";
 
 
-        String
+        String a = "12345";
+        String b = "12345";
+
+        String abc = "test";
+        System.out.println(abc.replace("tes","New"));
     }
 }
