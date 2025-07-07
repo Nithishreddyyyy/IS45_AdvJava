@@ -13,6 +13,7 @@ public class _6 {
         String b = "12345";
 
         String abc = "test";
-        System.out.println(abc.replace("tes","New"));
+        char [] ch = abc.toCharArray();
+        System.out.println(ch);
     }
 }
